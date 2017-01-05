@@ -13,7 +13,7 @@ public class Reader extends JFrame{
     JRadioButton r1, r2;
     JButton buttonReset;
     JButton buttonconvert;
-    JLabel l1; JLabel l2; JLabel l3; JLabel l4;
+    JLabel l1, l2, l3, l4;
     JTextField displayfield;
 
 
