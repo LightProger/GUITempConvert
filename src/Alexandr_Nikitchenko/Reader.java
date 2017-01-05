@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 
 /**
- * Created by Александр Nikitchenko on 05.01.2017.
+ * Created by Александр Никитченко on 05.01.2017.
  */
 public class Reader extends JFrame{
 
@@ -12,9 +12,9 @@ public class Reader extends JFrame{
     JPanel p1, p2, p3;
     JRadioButton r1, r2;
     JButton buttonReset;
-    JButton buttonconvert;
+    JButton buttonConvert;
     JLabel l1, l2, l3, l4;
-    JTextField displayfield;
+    JTextField displayed;
 
 
     public Reader(String s){
@@ -31,11 +31,11 @@ public class Reader extends JFrame{
         l2 = new JLabel("Введите температуру: ");
         l3 = new JLabel("");
         l4 = new JLabel("");
-        displayfield = new JTextField(5);
+        displayed = new JTextField(5);
         r1 = new JRadioButton("Цельсий");
         r2 = new JRadioButton("Фаренгейт");
         buttonReset = new JButton("Сброс");
-        buttonconvert = new JButton("Конвертировать");
+        buttonConvert = new JButton("Конвертировать");
 
         //Добавление созданных компонентов на панель
         p1.add(l1);
@@ -50,7 +50,7 @@ public class Reader extends JFrame{
 
         //Добавляем текстовое поле и поле ввода
         p2.add(l2);
-        p2.add(displayfield);
+        p2.add(displayed);
         p2.add(l3);
         p2.add(l4);
         add("Center", p2);
@@ -58,16 +58,16 @@ public class Reader extends JFrame{
         //Создаем новую панель
         p3 = new JPanel();
 
-        //Добавляем на панель кнопку
-        p3.add(buttonconvert);
+        //Добавляем на панель кнопки
+        p3.add(buttonConvert);
         p3.add(buttonReset);
         add("South", p3);
 
-        //Передача функций в класс Logyc
-        Logyc lc = new Logyc(this);
+        //Передача функций в класс Logic
+        Logic lc = new Logic(this);
         r1.addActionListener(lc);
         r2.addActionListener(lc);
-        buttonconvert.addActionListener(lc);
+        buttonConvert.addActionListener(lc);
         buttonReset.addActionListener(lc);
     }
 

@@ -9,12 +9,12 @@ import java.awt.event.ActionListener;
  */
 
     // Создание слушателя
-    public class Logyc implements ActionListener {
+    public class Logic implements ActionListener {
 
     Reader parent;
     double result = 0;
 
-    Logyc(Reader parent) {
+    Logic(Reader parent) {
         this.parent = parent;
     }
 
@@ -23,7 +23,7 @@ import java.awt.event.ActionListener;
 
         try {
             // Логика работы
-            String dispFieldText = parent.displayfield.getText();
+            String dispFieldText = parent.displayed.getText();
             double displayValue;
 
 
@@ -32,7 +32,7 @@ import java.awt.event.ActionListener;
 
             Object src = e.getSource();
 
-            if (parent.r1.isSelected() && src == parent.buttonconvert ) {
+            if (parent.r1.isSelected() && src == parent.buttonConvert ) {
                 String b;
                 b = "Ваша температура в Фаренгейтах равна: ";
                 parent.l3.setText(b);
@@ -40,7 +40,7 @@ import java.awt.event.ActionListener;
                 String a = "" + result + "F";
                 parent.l4.setText(a);
 
-            } else if (parent.r2.isSelected() && src == parent.buttonconvert) {
+            } else if (parent.r2.isSelected() && src == parent.buttonConvert) {
                 String b;
                 b = "Ваша температура в Цельсиях равна: ";
                 parent.l3.setText(b);
@@ -48,20 +48,20 @@ import java.awt.event.ActionListener;
                 String a = "" + result + "C";
                 parent.l4.setText(a);
             }
-            if (parent.r2.isSelected() && parent.r1.isSelected() && src == parent.buttonconvert) {
+            if (parent.r2.isSelected() && parent.r1.isSelected() && src == parent.buttonConvert) {
                 JOptionPane.showMessageDialog(null, "Выберите один из методов рассчета!");
-                parent.displayfield.setText(null);
+                parent.displayed.setText(null);
                 parent.l3.setText(null);
                 parent.l4.setText(null);
                 }
 
             if (src == parent.buttonReset) {
-                    parent.displayfield.setText(null);
+                    parent.displayed.setText(null);
                     parent.l3.setText(null);
                     parent.l4.setText(null);
                 }
             }catch(Exception e1){
-            parent.displayfield.setText(null);
+            parent.displayed.setText(null);
         }
 
         }
