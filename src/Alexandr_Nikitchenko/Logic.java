@@ -35,7 +35,7 @@ import java.awt.event.ActionListener;
             Object src = e.getSource();
 
             // Если нажата RadioButton1 и кнопка Конвертировать то:
-            if (parent.r1.isSelected() && src == parent.buttonConvert ) {
+            if (parent.r1.isSelected () && (src == parent.buttonConvert)) {
 
                 // Создаем строку в поле l3 и выводим решение в поле l4
                 String b;

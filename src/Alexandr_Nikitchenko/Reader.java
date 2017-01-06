@@ -15,6 +15,9 @@ public class Reader extends JFrame{
     JButton buttonConvert;
     JLabel l1, l2, l3, l4;
     JTextField displayed;
+    String r1string = "Цельсий";
+    String r2string = "Фаренгейт";
+
 
 
     public Reader(String s){
@@ -31,9 +34,15 @@ public class Reader extends JFrame{
         l2 = new JLabel("Введите температуру: ");
         l3 = new JLabel("");
         l4 = new JLabel("");
+
         displayed = new JTextField(5);
-        r1 = new JRadioButton("Цельсий");
-        r2 = new JRadioButton("Фаренгейт");
+
+        r1 = new JRadioButton(r1string);
+        r1.setActionCommand(r1string);
+        r1.setSelected ( true );
+        r2 = new JRadioButton(r2string);
+        r2.setActionCommand(r2string);
+
         buttonReset = new JButton("Сброс");
         buttonConvert = new JButton("Конвертировать");
 
@@ -69,6 +78,7 @@ public class Reader extends JFrame{
         r2.addActionListener(lc);
         buttonConvert.addActionListener(lc);
         buttonReset.addActionListener(lc);
+
     }
 
 }
