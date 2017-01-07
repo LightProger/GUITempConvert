@@ -24,3 +24,5 @@ public class GTCInterface {
         s.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
     }
 }
+
+
