@@ -11,27 +11,29 @@ import java.awt.event.ActionListener;
 // Создание слушателя
 public class Logic implements ActionListener {
 
-    Reader parent;
+    GTCInterface parent;
     double result = 0;
 
-    Logic(Reader parent) {
+    Logic(GTCInterface parent) {
         this.parent = parent;
     }
 
+    // Логика работы
     @Override
     public void actionPerformed(ActionEvent e) {
 
         try {
-            // Логика работы
+            // Ввод данных на дисплей
             String dispFieldText = parent.displayed.getText();
             double displayValue;
 
-
+            // Конвертация строки в число
             displayValue = Double.parseDouble(dispFieldText);
 
-
+            // Создание объекта
             Object src = e.getSource();
 
+            // Реакция на выбор метода и кнопки Конвертировать
             if (parent.r1.isSelected() && src == parent.buttonConvert ) {
                 String b;
                 b = "Ваша температура в Фаренгейтах равна: ";
@@ -48,18 +50,15 @@ public class Logic implements ActionListener {
                 String a = "" + result + "C";
                 parent.l4.setText(a);
             }
-            if (parent.r2.isSelected() && parent.r1.isSelected() && src == parent.buttonConvert) {
-                JOptionPane.showMessageDialog(null, "Выберите один из методов рассчета!");
-                parent.displayed.setText(null);
-                parent.l3.setText(null);
-                parent.l4.setText(null);
-            }
 
+                // Реакция на нажатие кнопки Сброс
             if (src == parent.buttonReset) {
                 parent.displayed.setText(null);
                 parent.l3.setText(null);
                 parent.l4.setText(null);
             }
+
+                // При возникновении ошибок обнулить дисплей
         }catch(Exception e1){
             parent.displayed.setText(null);
         }
