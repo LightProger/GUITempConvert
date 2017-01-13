@@ -51,15 +51,16 @@ public class Logic implements ActionListener {
                 parent.l4.setText(a);
             }
 
-                // Реакция на нажатие кнопки Сброс
+            // Реакция на нажатие кнопки Сброс
             if (src == parent.buttonReset) {
                 parent.displayed.setText(null);
                 parent.l3.setText(null);
                 parent.l4.setText(null);
             }
 
-                // При возникновении ошибок обнулить дисплей
+            // При возникновении ошибок обнулить дисплей
         }catch(Exception e1){
+            JOptionPane.showMessageDialog ( null, "Введите цифры..." );
             parent.displayed.setText(null);
         }
 
