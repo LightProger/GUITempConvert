@@ -1,5 +1,6 @@
 package Alexandr_Nikitchenko;
 
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -22,33 +23,48 @@ public class Logic implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
 
-        try {
-            // Ввод данных на дисплей
-            String dispFieldText = parent.displayed.getText();
-            double displayValue;
+        // Создание объекта
+        Object src = e.getSource();
 
-            // Получить число из дисплея + Конвертация строки в число
+        String dispFieldText = parent.displayed.getText();
+        double displayValue = 0;
+        // Получить число из дисплея,
+        // если он не пустой.
+        // Восклицательный знак – это оператор отрицания + Обработка ошибок
+        if (!"".equals(dispFieldText)) {
+            try {
                 displayValue = Double.parseDouble(dispFieldText);
+            }catch (Exception e1){
+                JOptionPane.showMessageDialog(null, "Введите цифры!!!");
+                parent.displayed.setText(null);
+            }
 
-
-            // Создание объекта
-            Object src = e.getSource();
+        }
 
             // Реакция на выбор метода и кнопки Конвертировать
             if (parent.r1.isSelected() && src == parent.buttonConvert ) {
                 String a = "Ваша температура в Фаренгейтах равна: ";
                 parent.l3.setText(a);
-                result = displayValue * 1.8 + 32;
-                String b = result + "F";
+                result  = displayValue * 1.8 + 32.0;
+                String b =  result + "F";
                 parent.l4.setText(b);
+
 
             } else if (parent.r2.isSelected() && src == parent.buttonConvert) {
                 String c = "Ваша температура в Цельсиях равна: ";
                 parent.l3.setText(c);
-                result = (displayValue - 32) * 5 / 9;
+                result = (displayValue - 32.0) * 5.0 / 9.0;
                 String d = result + "C";
                 parent.l4.setText(d);
             }
+
+             if ("".equals(dispFieldText) && (parent.r1.isSelected () || parent.r2.isSelected ()) &&
+                    src == parent.buttonConvert) {
+                    parent.displayed.setText(null);
+                    parent.l4.setText(null);
+                    JOptionPane.showMessageDialog (null, "Поле ввода пустое!" );
+                }
+
 
             // Реакция на нажатие кнопки Сброс
             if (src == parent.buttonReset) {
@@ -56,12 +72,5 @@ public class Logic implements ActionListener {
                 parent.l3.setText(null);
                 parent.l4.setText(null);
             }
-
-            // При возникновении ошибок обнулить дисплей
-        }catch(Exception e1){
-            parent.displayed.setText(null);
         }
-
     }
-
-}
